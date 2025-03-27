@@ -1,6 +1,37 @@
 # Sistema_de_Monitoramento
- uma aplicação embarcada no FreeRTOS com 3 tarefas que simulam o monitoramento de um sistema com sensores (como um botão e um LED).
-Descrição do Sistema:
-Tarefa 1 (Leitura do Botão): Essa tarefa será responsável por simular a leitura de um botão. Ela será executada periodicamente, a cada 100ms, e enviará o estado do botão para a próxima tarefa.
-Tarefa 2 (Processamento do Botão): Receberá o estado do botão da Tarefa 1. Caso o botão seja pressionado (simulado com a variável), ela acionará a próxima tarefa (a de controlar o LED). Caso contrário, apenas aguardará o próximo ciclo de leitura.
-Tarefa 3 (Controle do LED): Controlará um LED (simulado como uma variável ou saída digital). Se o botão for pressionado, o LED será aceso, caso contrário, será apagado. A tarefa será executada sempre que for acionada pela Tarefa 2.
+
+Este projeto é uma aplicação embarcada utilizando **FreeRTOS**, composta por três tarefas que simulam o monitoramento de um sistema com sensores simples, como um botão e um LED.
+
+## Descrição do Sistema
+
+O sistema é composto por três tarefas principais:
+
+### 🟢 Tarefa 1 - Leitura do Botão
+
+- Responsável por simular a leitura do estado de um botão.
+- Executada periodicamente a cada **100ms**.
+- Envia o estado atual do botão para a **Tarefa 2** (Processamento).
+
+### ⚙️ Tarefa 2 - Processamento do Botão
+
+- Recebe o estado do botão enviado pela Tarefa 1.
+- Se o botão estiver pressionado (simulado por uma variável), aciona a **Tarefa 3** (Controle do LED).
+- Caso contrário, apenas aguarda o próximo estado.
+
+### 💡 Tarefa 3 - Controle do LED
+
+- Responsável por simular o controle de um LED (pode ser uma variável ou uma saída digital).
+- Se o botão estiver pressionado, o LED é aceso.
+- Caso o botão não esteja pressionado, o LED é apagado.
+- Esta tarefa é executada **somente quando acionada** pela Tarefa 2.
+
+## Tecnologias Utilizadas
+
+- Linguagem C
+- FreeRTOS
+- Simulação de hardware (botão e LED como variáveis ou GPIOs)
+
+## Objetivo
+
+O objetivo principal deste projeto é demonstrar o uso de tarefas no FreeRTOS e a comunicação entre elas para simular um sistema de monitoramento embarcado simples.
+
